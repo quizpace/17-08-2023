@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Homework7</title>
+    <style>
+      .square {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="colorButton">HIT DA MAGIC</button>
+    <div id="squareContainer"></div>
+    <script>
+      let isStarted = false;
+
+      function createSquare() {
+        isStarted = true;
+        setInterval(() => {
+          if (isStarted) {
+            const square = document.createElement("div");
+            square.className = "square";
+            square.style.left =
+              Math.floor(Math.random() * window.innerWidth) + "px";
+            square.style.top =
+              Math.floor(Math.random() * window.innerHeight) + "px";
+            changeColor(square);
+            document.getElementById("squareContainer").appendChild(square);
+          }
+        }, 1000);
+      }
+
+      function changeColor(square) {
+        const red = Math.floor(Math.random() * 256);
+        const green = Math.floor(Math.random() * 256);
+        const blue = Math.floor(Math.random() * 256);
+        square.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+      }
+
+      const colorButton = document.getElementById("colorButton");
+      colorButton.addEventListener("click", createSquare);
+    </script>
+  </body>
+</html>

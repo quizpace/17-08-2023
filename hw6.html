@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homework6</title>
+  </head>
+  <body>
+    <script>
+      let numbersList = [1, 3, 5];
+      let wordsList = ["I", "love", "java script"];
+
+      let userList = [];
+      for (let i = 0; i < 10; i++) {
+        let userInput = parseInt(prompt("enter a number:"));
+        userList.push(userInput);
+      }
+
+      let userListC = [];
+      let userInput;
+
+      for (;;) {
+        userInput = parseInt(prompt("enter a number, -99 to exit"));
+
+        if (userInput === -99) {
+          break;
+        }
+        userInput >= 1 && userInput <= 100 ? userListC.push(userInput) : null;
+      }
+
+      let sum = userListC.reduce((acc, num) => acc + num, 0);
+      let average =
+        userListC.length > 0 ? Math.floor(sum / userListC.length) : 0;
+
+      console.log(`numbers were entered: ${userListC.length}`);
+      console.log(`numbers average: ${average}`);
+    </script>
+  </body>
+</html>

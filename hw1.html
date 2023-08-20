@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Homework1</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css"
+    />
+  </head>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
+    <script>
+      async function numberGuessingGame() {
+        const rNum = Math.floor(Math.random() * 100) + 1;
+
+        while (true) {
+          const { value: uGuess } = await Swal.fire({
+            title: "Guess the Number [1 - 100]",
+            input: "number",
+            inputAttributes: {
+              min: 1,
+              max: 100,
+              step: 1,
+            },
+            showCancelButton: true,
+            cancelButtonText: "Cancel",
+            confirmButtonText: "Submit",
+          });
+
+          if (uGuess === undefined) {
+            break;
+          }
+
+          if (uGuess < rNum) {
+            await Swal.fire("Too low!", "Try a higher number", "error");
+          } else if (uGuess > rNum) {
+            await Swal.fire("Too high!", "Try a lower number", "error");
+          } else {
+            await Swal.fire(
+              `Congratulations! You guessed the correct number: ${rNum}`,
+              "",
+              "success"
+            );
+            break;
+          }
+        }
+      }
+
+      window.onload = numberGuessingGame();
+    </script>
+  </body>
+</html>

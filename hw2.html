@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Homework2</title>
+  </head>
+  <body>
+    <label for="startNumber">מספר התחלה:</label>
+    <input type="number" id="startNumber" name="startNumber" /><br /><br />
+
+    <label for="endNumber">מספר סיום:</label>
+    <input type="number" id="endNumber" name="endNumber" /><br /><br />
+
+    <label for="zakifNumber">זקיף:</label>
+    <input type="number" id="zakifNumber" name="zakifNumber" /><br /><br />
+
+    <label for="divider">חלוקת דילוג:</label>
+    <input type="number" id="divider" name="divider" /><br /><br />
+
+    <button onclick="runLoop()">הצג תוצאה</button>
+
+    <p id="result"></p>
+
+    <script>
+      function runLoop() {
+        const start = parseInt(document.getElementById("startNumber").value);
+        const end = parseInt(document.getElementById("endNumber").value);
+        const zakif = parseInt(document.getElementById("zakifNumber").value);
+        const divider = parseInt(document.getElementById("divider").value);
+
+        let result = "";
+        for (let i = start; i <= end; i++) {
+          if (i % divider === 0) {
+            continue;
+          }
+
+          if (i === zakif) {
+            break;
+          }
+
+          result += i + " ";
+        }
+
+        document.getElementById("result").textContent = result;
+      }
+    </script>
+  </body>
+</html>

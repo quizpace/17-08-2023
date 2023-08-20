@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Homework5</title>
+  </head>
+  <body>
+    <h1>Function Selector</h1>
+
+    <label for="numberInput">Enter a number:</label>
+    <input type="number" id="numberInput" /><br /><br />
+
+    <label for="functionSelect">Select a function:</label>
+    <select id="functionSelect">
+      <option value="isEven">Is Even?</option>
+      <option value="isPositive">Is Positive?</option>
+      <option value="isSingleDigit">Is Single Digit?</option>
+      <option value="isDivisibleBy11">Is Divisible by 11?</option>
+      <option value="randomBoolean">Random Boolean</option>
+      <option value="isMyAge">Is My Age?</option></select
+    ><br /><br />
+
+    <button id="runButton">Run Function</button><br /><br />
+
+    <p id="result"></p>
+
+    <script>
+      function isEven(number) {
+        return number % 2 === 0;
+      }
+
+      function isPositive(number) {
+        return number > 0;
+      }
+
+      function isSingleDigit(number) {
+        return number >= 0 && number < 10;
+      }
+
+      function isDivisibleBy11(number) {
+        return number % 11 === 0;
+      }
+
+      function randomBoolean() {
+        return Math.random() < 0.5;
+      }
+
+      function isMyAge(age) {
+        const myAge = 33;
+        return age === myAge;
+      }
+
+      document
+        .getElementById("runButton")
+        .addEventListener("click", function () {
+          const number = parseFloat(
+            document.getElementById("numberInput").value
+          );
+          const selectedFunction =
+            document.getElementById("functionSelect").value;
+          let result = "";
+
+          switch (selectedFunction) {
+            case "isEven":
+              result = isEven(number) ? "true" : "false";
+              break;
+
+            case "isPositive":
+              result = isPositive(number) ? "true" : "false";
+              break;
+
+            case "isSingleDigit":
+              result = isSingleDigit(number) ? "true" : "false";
+              break;
+
+            case "isDivisibleBy11":
+              result = isDivisibleBy11(number) ? "true" : "false";
+              break;
+
+            case "randomBoolean":
+              result = randomBoolean() ? "true" : "false";
+              break;
+
+            case "isMyAge":
+              result = isMyAge(number) ? "true" : "false";
+              break;
+
+            default:
+              result = "Invalid function selection";
+          }
+
+          document.getElementById("result").textContent = "Result: " + result;
+        });
+    </script>
+  </body>
+</html>

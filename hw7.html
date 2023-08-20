@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Homework7</title>
+    <style>
+      .square {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="square" id="coloredSquare"></div>
+    <input type="string" id="userC" placeholder="Enter a color" />
+    <button id="colorButton">Create Square</button>
+    <script>
+      function colors(color) {
+        var square = document.getElementById("coloredSquare");
+        square.style.backgroundColor = color;
+      }
+
+      function buttonClick() {
+        const userColor = document.getElementById("userC").value;
+        colors(userColor);
+      }
+
+      const colorButton = document.getElementById("colorButton");
+      colorButton.addEventListener("click", buttonClick);
+    </script>
+  </body>
+</html>
