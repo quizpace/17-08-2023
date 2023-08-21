@@ -6,12 +6,14 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css"
     />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
   </head>
   <body>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
     <script>
       async function numberGuessingGame() {
         const rNum = Math.floor(Math.random() * 100) + 1;
+
+        await Swal.fire("Welcome!", "Enjoy the game", "success");
 
         while (true) {
           const { value: uGuess } = await Swal.fire({
@@ -37,7 +39,7 @@
             await Swal.fire("Too high!", "Try a lower number", "error");
           } else {
             await Swal.fire(
-              `Congratulations! You guessed the correct number: ${rNum}`,
+              `Congratulations! your guess is correct: ${rNum}`,
               "",
               "success"
             );
@@ -47,6 +49,31 @@
       }
 
       window.onload = numberGuessingGame();
+
+
+      // ללא אתגר
+
+      //       const rNum = Math.floor(Math.random() * 100) + 1;
+
+      // while (true) {
+      //   const uGuess = parseInt(prompt("enter a number:"));
+      //   if (uGuess > 100 || uGuess < 1) {
+      //     continue;
+      //   } else if (uGuess < rNum) {
+      //     alert("Too low!", "Try a higher number", "error");
+      //     continue;
+      //   } else if (uGuess > rNum) {
+      //     alert("Too high!", "Try a lower number", "error");
+      //     continue;
+      //   } else {
+      //     alert(
+      //       `Congratulations! your guess is correct: ${rNum}`,
+      //       "",
+      //       "success"
+      //     );
+      //     break;
+      //   }
+      // }
     </script>
   </body>
 </html>
