@@ -16,15 +16,16 @@
       function myClick() {
         const num1 = parseFloat(document.getElementById("num1").value);
         const num2 = parseFloat(document.getElementById("num2").value);
-
-        if (isNaN(num1) || isNaN(num2)) {
-          alert("Please enter valid numbers.");
-          return;
-        }
-
         const result = findMinimum(num1, num2);
         document.write("The minimum number is: " + result);
       }
+
+      // function myClick() {
+      //   const num1 = parseFloat(document.getElementById("num1").value);
+      //   const num2 = parseFloat(document.getElementById("num2").value);
+      //   const result = Math.min(num1, num2);
+      //   document.write("The minimum number is: " + result);
+      // }
     </script>
   </body>
 </html>
