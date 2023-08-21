@@ -11,16 +11,18 @@
       let wordsList = ["I", "love", "java script"];
 
       let userList = [];
+      let times = 10;
       for (let i = 0; i < 10; i++) {
-        let userInput = parseInt(prompt("enter a number:"));
+        let userInput = parseInt(prompt(`enter a number (${times} numbers)`));
         userList.push(userInput);
+        times--;
       }
 
       let userListC = [];
       let userInput;
 
       for (;;) {
-        userInput = parseInt(prompt("enter a number, -99 to exit"));
+        userInput = parseInt(prompt("enter few numbers, -99 to exit"));
 
         if (userInput === -99) {
           break;
